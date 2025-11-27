@@ -1,0 +1,30 @@
+<h2>Admin Dashboard</h2>
+<div id="userAlerts"></div>
+<div id="allProducts"></div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="script.js"></script>
+
+<script>
+    // Load new users alert
+    db.collection("adminAlerts").get().then(snapshot => {
+        let html = "<h3>New Users</h3>";
+        snapshot.forEach(doc => {
+            let data = doc.data();
+            html += `<div>${data.name} - ${data.email} at ${data.time.toDate()}</div>`;
+        });
+        document.getElementById("userAlerts").innerHTML = html;
+    });
+
+    // Load products (from Firestore)
+    db.collection("products").get().then(snapshot => {
+        let html = "<h3>Products</h3>";
+        snapshot.forEach(doc => {
+            let p = doc.data();
+            html += `<div>${p.name} - ₹${p.price}</div>`;
+        });
+        document.getElementById("allProducts").innerHTML = html;
+    });
+</script>
