@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laxmi Collections - Full Store</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #000; color: #fff; }
+    header { background-color: #0d0d0d; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; color: #00d4ff; }
+    nav { display: flex; overflow-x: auto; justify-content: space-around; background-color: #111; padding: 12px 0; position: sticky; top: 0; z-index: 999; }
+    nav a { color: #ffffff; text-decoration: none; font-size: 15px; padding: 6px; }
+    .banner { background: linear-gradient(#000000a0,#000000a0), url('https://via.placeholder.com/500x250/000000/00d4ff?text=Laxmi+Collections') center/cover; height: 220px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 8px #000; border-bottom: 2px solid #00d4ff; }
+    .section-title { padding: 10px; font-size: 19px; color: #00d4ff; font-weight: bold; }
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px; }
+    .product-card { background-color: #101010; padding: 10px; border: 1px solid #1a1a1a; border-radius: 8px; text-align: center; }
+    .product-card img { width: 100%; border-radius: 5px; height: 120px; object-fit: cover; }
+    .product-card button { background-color: #00d4ff; border: none; padding: 8px; width: 100%; margin-top: 8px; border-radius: 5px; font-weight: bold; cursor: pointer; color: #000; }
+    footer { text-align: center; padding: 12px; background-color: #0d0d0d; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<header>Laxmi Collections</header>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#electronics">Electronics</a>
+  <a href="#clothes">Clothes</a>
+  <a href="#beauty">Beauty</a>
+  <a href="#store">General Store</a>
+  <a href="#cart">Cart</a>
+</nav>
+<div class="banner" id="home">Welcome to Laxmi Collections</div>
+
+<div class="section-title" id="electronics">Electronics</div>
+<div class="products">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/150" alt="Product">
+    <h4>Headphones</h4>
+    <p>₹599</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+
+<div class="section-title" id="clothes">Clothes</div>
+<div class="products">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/150" alt="Product">
+    <h4>T-Shirt</h4>
+    <p>₹399</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+
+<div class="section-title" id="beauty">Beauty</div>
+<div class="products">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/150" alt="Product">
+    <h4>Face Cream</h4>
+    <p>₹299</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+
+<div class="section-title" id="store">General Store</div>
+<div class="products">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/150" alt="Product">
+    <h4>Biscuits</h4>
+    <p>₹49</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+
+<footer>© 2025 Laxmi Collections | All Rights Reserved</footer>
+
+</body>
+</html>
