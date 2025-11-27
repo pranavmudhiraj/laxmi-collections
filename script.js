@@ -1,3 +1,37 @@
+// Add product to cart
+function addToCart(productId, productName, price) {
+    const user = auth.currentUser;
+    if (!user) {
+        alert("Please login first!");
+        return;
+    }
+    db.collection("carts").doc(user.uid).collection("items").doc(productId).set({
+        name: productName,
+        price: price,
+        quantity: 1
+    })
+    .then(() => alert(productName + " added to cart"))
+    .catch(err => alert(err.message));
+}
+
+// Load cart items on cart page
+function loadCart() {
+    const user = auth.currentUser;
+    if (!user) {
+        document.getElementById("cartItems").innerHTML = "Login to view cart";
+        return;
+    }
+    db.collection("carts").doc(user.uid).collection("items")
+    .get()
+    .then(snapshot => {
+        let html = "";
+        snapshot.forEach(doc => {
+            let data = doc.data();
+            html += `<div>${data.name} - ₹${data.price} x ${data.quantity}</div>`;
+        });
+        document.getElementById("cartItems").innerHTML = html;
+    });
+}
 function loginUser() {
     let email = document.getElementById("loginEmail").value;
     let pass = document.getElementById("loginPass").value;
