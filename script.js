@@ -1,4 +1,24 @@
-// ===== User Registration =====
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDFXoth40tGQb2RKuU6uHWpNFShS2pSbdc",
+  authDomain: "laxmi-collections26.firebaseapp.com",
+  projectId: "laxmi-collections26",
+  storageBucket: "laxmi-collections26.firebasestorage.app",
+  messagingSenderId: "688750097818",
+  appId: "1:688750097818:web:14425e9e055522fb3b3623",
+  measurementId: "G-0X6NPTNQLP"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);// ===== User Registration =====
 function registerUser() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
