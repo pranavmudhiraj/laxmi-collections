@@ -1,3 +1,23 @@
+<div id="productList"></div>
+<script src="script.js"></script>
+<script>
+    const productList = document.getElementById("productList");
+
+    db.collection("products").get().then(snapshot => {
+        snapshot.forEach(doc => {
+            let p = doc.data();
+            let card = document.createElement("div");
+            card.className = "product-card";
+            card.innerHTML = `
+                <img src="${p.image}" alt="${p.name}">
+                <p>${p.name}</p>
+                <p>₹${p.price}</p>
+                <button onclick="addToCart('${p.id}','${p.name}',${p.price})">Add to Cart</button>
+            `;
+            productList.appendChild(card);
+        });
+    });
+</script>
 <a href="login.html">Account</a>
 <!DOCTYPE html>
 <html lang="en">
