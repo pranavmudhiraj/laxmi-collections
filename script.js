@@ -1,3 +1,16 @@
+function loginUser() {
+    let email = document.getElementById("loginEmail").value;
+    let pass = document.getElementById("loginPass").value;
+
+    auth.signInWithEmailAndPassword(email, pass)
+    .then((userCredential) => {
+        alert("Login successful!");
+        window.location.href = "index.html";
+    })
+    .catch((error) => {
+        alert(error.message);
+    });
+}
 function registerUser() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
