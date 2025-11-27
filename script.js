@@ -1,3 +1,37 @@
+function registerUser() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+
+    if (name == "" || email == "" || pass == "") {
+        alert("Fill all fields");
+        return;
+    }
+
+    // Create user in Firebase Auth
+    auth.createUserWithEmailAndPassword(email, pass)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        // Save user info in Firestore
+        db.collection("users").doc(user.uid).set({
+            name: name,
+            email: email,
+            createdAt: new Date()
+        });
+        alert("Registered successfully!");
+        window.location.href = "login.html";
+
+        // Send admin alert
+        db.collection("adminAlerts").add({
+            email: email,
+            name: name,
+            time: new Date()
+        });
+    })
+    .catch((error) => {
+        alert(error.message);
+    });
+}
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
